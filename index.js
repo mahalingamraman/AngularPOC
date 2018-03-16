@@ -146,7 +146,7 @@ function deleteAddress()
 	}
 
 }
-function fetchAddress(){
+function fetchAddressService(){
 fetch('get.php')
 	.then(
 		function(response) {
@@ -181,4 +181,29 @@ fetch('get.php')
 		console.log('Fetch Error :-S', err);
 	});
 
+}
+function fetchAddress(){
+	let data =[{username: "sample", dob: "31/12/1986", gender: "male", lang: "male", comments: "male"},
+ {username: "Sample", dob: "1/3/1971", gender: "male", lang: "male", comments: "male"},
+ {username: "Sample", dob: "1/3/1971", gender: "male", lang: "male", comments: "male"},
+ {username: "dsfsdf", dob: "1/1/1968", gender: "Female", lang: "Female", comments: "Female"},
+ {username: "news sample", dob: "1/1/1968", gender: "Female", lang: "Female", comments: "Female"},
+ {username: "sdsa", dob: "1/1/1968", gender: "male", lang: "male", comments: "male"}];
+
+	let columnArr =[{colDisplay:'user name', beDisplay:'username'}, {colDisplay:'d o b',beDisplay:'dob'},{colDisplay:'gen der',beDisplay:'gender'}];
+	console.log(data);
+	if(data.length){
+		let table ="<table border=1><tr>";
+				columnArr.map(column=>{table+="<th>"+column.colDisplay+"</th>"});
+		table+="</tr>";
+		data.map(da=>{
+			table+="<tr>";
+				columnArr.map(column=>{
+					table+="<td>"+da[column.beDisplay]+"</td>";
+				});
+			table+="</tr>";
+		});
+		table+= "</table>";
+		document.getElementById('backend-data').innerHTML = table;
+		}
 }

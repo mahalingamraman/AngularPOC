@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> H1 Tag Chnage </title>
+	<!--<script src="arrayobj.js" type="text/javascript"></script>-->
+</head>
+<body>
+	<div>
+		<form name="frm">
+			<div> <label for="namee">Name</label>:<input type="text" name="name" id="name"/>
+<div> <label for="namee">Cost</label>:<input type="text" name="cost" id="cost"/>
+<div> <label for="namee">Cost</label>:<input type="text" name="units" id="units"/>
+		<h1 id="displayname">dfsdfsdf</h1>
+<button type='button' onclick="populate()">populate</button>
+		</form>
+	</div>
+<script>
+let products =[];
+let productsArray=[];
+let incre = 0;
+function populate(){
+	///console.log(document.frm.name.value);
+	productsArray[incre]= new Array();
+	productsArray[incre][0]=document.frm.name.value;
+	productsArray[incre][1]=document.frm.cost.value;
+	productsArray[incre][2]=document.frm.units.value;
+	incre++;
+	products.push({name:document.frm.name.value,cost:document.frm.cost.value, units:document.frm.units.value})
+//console.log(products);
+//console.log(productsArray);
+let i =0;
+products.map((product, j)=>{
+	console.log(product.name, product['name']);
+console.log("i value =", j);
+i++;
+	});
+}
+</script>
+
+</body>
